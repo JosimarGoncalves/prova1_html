@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang=“pt-br”>
+	<head>
+		<meta charset=“UTF-8”/>
+		<title>Recebe Dados Sócio</title>
+		<style>
+			body{
+				font-family: Arial;
+			}
+		</style>
+	</head>
+	<body>
+		<h1> Receber Dados Sócio </h1>
+		<form>
+		
+			<label for="url_id">URL inteira:</label>
+			<input id="url_id" type="text" style="width: 750px;"/> <br/><br/>
+			
+			<label for="so_dados_id">Apenas os dados selecionados :</label>
+			<input id="so_dados_id" type="text" style="width: 500px;"/> <br/><br/>
+			
+            <label for="so_dados_nome_id">Dados de nome:</label>
+			<input id="so_dados_nome_id" type="text" style="width: 300px;"/> <br/><br/>
+			<label for="so_dados_idade_id">Dados da Idade:</label>
+			<input id="so_dados_idade_id" type="text" style="width: 200px;"/> <br/><br/>
+
+			<a href="../index.html">Clique aqui para voltar Home</a>
+		</form>	
+		<script type="text/javascript">
+		
+		var url_atual = document.URL;
+		window.alert("A URL inteira recebida da página anterior foi: "+url_atual);
+		document.getElementById('url_id').value = url_atual;
+		window.alert("Somente os dados com ? "+location.search);
+		window.alert("Somente os dados SEM ? "+location.search.substring(1));
+		var so_dados = location.search.substring(1);
+		document.getElementById('so_dados_id').value = so_dados;
+		var partes = so_dados.split("&");
+		window.alert("Os dados foram separados pro virgula em partes: "+partes);
+		document.getElementById('so_dados_id').value = partes;
+		document.getElementById('so_dados_nome_id').value = partes[0];
+		document.getElementById('so_dados_idade_id').value = partes[1];
+		</script>
+	</body>
+</html>
